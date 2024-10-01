@@ -1,0 +1,53 @@
+#about-me {
+    text-align: center;
+    font-style: italic;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #081073;
+}
+
+#about-me:first-letter {
+    color: #228D00;
+}
+
+header {
+    background-color: #CFDBFF;
+}
+
+.form-block, .image-container {
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+.image-container {
+    text-align: center;
+}
+
+#history {
+    margin-right: 500px;
+    margin-left: 500px;
+    font-size: 1.25rem;
+    font-weight: normal;
+    border-collapse: collapse;
+    border: 3px solid #081073;
+}
+
+td, th {
+    font-weight: normal;
+    padding: 11px 20px;
+}
+
+.chosen-r {
+    background-color: #5FC0CE;
+}
+
+#table-first-row th {
+    font-size: larger;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+#table-first-row {
+    border-collapse: collapse;
+    border: 3px solid #081073;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab1</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header>
+            <div>
+                <p>
+                    <h1 id="about-me">Старостина Елена Петровна, P3219, ИСУ 414257. Вариант 414257</h1>
+                </p>
+            </div>
+        </header>
+    <main>
+        <div class="image-container">
+            <img src="graph.png" alt="График x, y, r">
+        </div>
+        <form id="dataForm">
+            <p class="form-block">
+                Выберите X
+                <input id="-4" type="checkbox" class="x">
+                <label for="-4">-4</label>
+                <input id="-3" type="checkbox" class="x">
+                <label for="-3">-3</label>
+                <input id="-2" type="checkbox" class="x">
+                <label for="-2">-2</label>
+                <input id="-1" type="checkbox" class="x">
+                <label for="-1">-1</label>
+                <input id="0" type="checkbox" class="x">
+                <label for="0">0</label>
+                <input id="1" type="checkbox" class="x">
+                <label for="1">1</label>
+                <input id="2" type="checkbox" class="x">
+                <label for="2">2</label>
+                <input id="3" type="checkbox" class="x">
+                <label for="3">3</label>
+                <input id="4" type="checkbox" class="x">
+                <label for="4">4</label>
+            </p>
+            <p class="form-block">
+                Введите Y
+                <input type="text" id="y">
+            </p>
+            <p class="form-block">
+                Введите R
+                <input type="button" class="r" value="1">
+                <input type="button" class="r" value="1.5">
+                <input type="button" class="r" value="2">
+                <input type="button" class="r" value="2.5">
+                <input type="button" class="r" value="3">
+            </p>
+            <p><input type="submit" class="form-block"></p>
+        </form>
+        <table id="history">
+            <tr id="table-first-row">
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Время</th>
+                <th>Время выполнения</th>
+                <th>Результат</th>
+            </tr>
+        </table>
+    </main>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
