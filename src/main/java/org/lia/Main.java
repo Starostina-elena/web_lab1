@@ -5,6 +5,8 @@ import com.fastcgi.FCGIInterface;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Main {
@@ -16,7 +18,7 @@ public class Main {
         {
         "code":"%d",
         "result":"%s",
-        "x":"%d",
+        "x":"%.3f",
         "y":"%.3f",
         "r":"%.1f",
         "time":"%s",
@@ -39,16 +41,24 @@ public class Main {
             if (FCGIInterface.request.params.getProperty("REQUEST_METHOD").equals("GET")) {
                 java.util.Date startDate = new java.util.Date();
                 String[] requestParams = FCGIInterface.request.params.getProperty("QUERY_STRING").split("&");
-                int x;
-                float y, r;
+
+                float x, y, r;
                 try {
-                    x = Integer.parseInt(requestParams[0].substring(2));
-                    y = Float.parseFloat(requestParams[1].substring(2));
-                    r = Float.parseFloat(requestParams[2].substring(2));
+                    Map<String, Float> requestParamsMap = new HashMap<String, Float>();
+                    for (String param : requestParams) {
+                        String[] paramSplitted = param.split("=");
+                        if (paramSplitted.length != 2) {
+                            throw new IllegalArgumentException("Incorrect argument");
+                        }
+                        requestParamsMap.put(paramSplitted[0], Float.parseFloat(paramSplitted[1]));
+                    }
+                    x = requestParamsMap.get("x");
+                    y = requestParamsMap.get("y");
+                    r = requestParamsMap.get("r");
                     if (x < -4 || x > 4 || y < -5 || y > 3 || r < 1 || r > 3) {
                         throw new IndexOutOfBoundsException("Incorrect argument");
                     }
-                } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
+                } catch (NullPointerException | IndexOutOfBoundsException | IllegalArgumentException e) {
                     System.out.printf((HTTP_ERROR) + "%n", 400, "Некорректные параметры");
                     continue;
                 }
